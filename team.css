@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════
+   team.css — Team Section + Skills Section
+   Built by: Person 2 (Frontend Developer)
+   Branch: feature/team-section
+   Also: Person 3 adds skills-section styles
+═══════════════════════════════════════════ */
+
+/* ── Team Section ── */
+.team-section {
+  padding: 6rem 3rem;
+  background: var(--bg2);
+  position: relative;
+}
+
+.team-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+}
+
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124,92,252,0.4);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.team-card:hover::before { opacity: 1; }
+
+.team-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.avatar-1 { background: rgba(124,92,252,0.15); border: 2px solid rgba(124,92,252,0.3); }
+.avatar-2 { background: rgba(252,92,125,0.15); border: 2px solid rgba(252,92,125,0.3); }
+.avatar-3 { background: rgba(92,252,200,0.15); border: 2px solid rgba(92,252,200,0.3); }
+.avatar-4 { background: rgba(252,200,92,0.15); border: 2px solid rgba(252,200,92,0.3); }
+
+.team-role {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.team-name {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.team-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Skills Section ── */
+/* Person 3 builds this section */
+.skills-section {
+  padding: 6rem 3rem;
+  background: var(--bg);
+  position: relative;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: transform var(--transition), border-color var(--transition);
+  cursor: default;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.skill-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.skill-name {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.skill-level {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.skill-bar {
+  margin-top: 0.8rem;
+  height: 4px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 100px;
+  transition: width 1s ease;
+}
+
+@media (max-width: 768px) {
+  .team-section, .skills-section { padding: 4rem 1.5rem; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+}
